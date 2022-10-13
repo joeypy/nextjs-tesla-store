@@ -1,16 +1,6 @@
-import NextLink from "next/link";
-import {
-  Box,
-  Button,
-  CardActionArea,
-  CardMedia,
-  Grid,
-  Link,
-  Typography,
-} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { initialData } from "../../database/products";
-import { ItemCounter } from "../ui";
 
 interface Props {}
 
@@ -25,39 +15,31 @@ export const OrderSummary = (props: Props) => {
     <>
       <Grid container>
         <Grid item xs={6}>
-          <Typography variant="body1">N° Productos</Typography>
+          <Typography>N° Productos</Typography>
         </Grid>
         <Grid item xs={6} display="flex" justifyContent="end">
-          <Typography variant="body1">
-            <strong>3 items</strong>
-          </Typography>
+          <Typography>3 items</Typography>
         </Grid>
 
         <Grid item xs={6}>
-          <Typography variant="body1">Subtotal</Typography>
+          <Typography>Subtotal</Typography>
         </Grid>
         <Grid item xs={6} display="flex" justifyContent="end">
-          <Typography>
-            <strong>{`$${155.36}`}</strong>
-          </Typography>
+          <Typography>{`$${155.36}`}</Typography>
         </Grid>
 
         <Grid item xs={6}>
-          <Typography variant="body1">Impuestos (15%)</Typography>
+          <Typography>Impuestos (15%)</Typography>
         </Grid>
         <Grid item xs={6} display="flex" justifyContent="end">
-          <Typography>
-            <strong>{`$${35.34}`}</strong>
-          </Typography>
+          <Typography>{`$${35.34}`}</Typography>
         </Grid>
 
-        <Grid item xs={6}>
-          <Typography variant="body1">Total</Typography>
+        <Grid item xs={6} sx={{ mt: 2 }}>
+          <Typography variant="subtitle1">Total</Typography>
         </Grid>
-        <Grid item xs={6} display="flex" justifyContent="end">
-          <Typography>
-            <strong>{`$${186.34}`}</strong>
-          </Typography>
+        <Grid item xs={6} display="flex" justifyContent="end" sx={{ mt: 2 }}>
+          <Typography variant="subtitle1">{`$${186.34}`}</Typography>
         </Grid>
       </Grid>
     </>

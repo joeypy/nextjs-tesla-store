@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   CardContent,
+  Chip,
   Divider,
   Grid,
   Link,
@@ -12,13 +13,36 @@ import {
 import React from "react";
 import { ShopLayout } from "../../components/layout";
 import { CartList, OrderSummary } from "../../components/cart";
+import {
+  CreditCardOffOutlined,
+  CreditScoreOutlined,
+} from "@mui/icons-material";
 
-const SummaryPage = () => {
+const OrderPage = () => {
   return (
-    <ShopLayout title="Resumen de orden" pageDescription="Resumen de la orden">
+    <ShopLayout
+      title="Resumen de orden 3263246938"
+      pageDescription="Resumen de la orden"
+    >
       <Typography variant="h1" component="h1">
-        Resumen de la orden
+        Orden: 3928432947
       </Typography>
+
+      <Chip
+        sx={{ my: 2 }}
+        label="Orden ya fue pagada"
+        variant="outlined"
+        color="success"
+        icon={<CreditScoreOutlined />}
+      />
+      <Chip
+        sx={{ my: 2 }}
+        label="Pendiente de pago"
+        variant="outlined"
+        color="error"
+        icon={<CreditCardOffOutlined />}
+      />
+
       <Grid container sx={{ mt: 2 }}>
         <Grid item xs={12} sm={7}>
           <CartList />
@@ -56,20 +80,24 @@ const SummaryPage = () => {
                 justifyContent="space-between"
                 alignItems="center"
               >
-                <Typography variant="subtitle1">
-                  Carrito
-                </Typography>
+                <Typography variant="subtitle1">Carrito</Typography>
                 <NextLink href="/cart" passHref>
                   <Link underline="always">Editar</Link>
                 </NextLink>
               </Box>
 
-              <OrderSummary/>
+              <OrderSummary />
 
               <Box sx={{ mt: 3 }}>
-                <Button color="secondary" className="circular-btn" fullWidth>
-                  Confirmar Orden
-                </Button>
+                {/* TODO */}
+                <h1>Pagar</h1>
+                <Chip
+                  sx={{ my: 2 }}
+                  label="Orden ya fue pagada"
+                  variant="outlined"
+                  color="success"
+                  icon={<CreditScoreOutlined />}
+                />
               </Box>
             </CardContent>
           </Card>
@@ -79,4 +107,4 @@ const SummaryPage = () => {
   );
 };
 
-export default SummaryPage;
+export default OrderPage;

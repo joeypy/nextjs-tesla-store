@@ -20,18 +20,17 @@ const CartPage = () => {
       <Typography variant="h1" component="h1">
         Carrito
       </Typography>
-      <Grid container>
-        
+      <Grid container sx={{ mt: 2 }}>
         <Grid item xs={12} sm={7}>
-          <CartList editable/>
+          <CartList editable />
         </Grid>
 
         <Grid item xs={12} sm={5}>
           <Card className="summary-card">
             <CardContent>
               <Typography variant="h2">Orden</Typography>
-              <OrderSummary />
               <Divider sx={{ my: 1 }} />
+              <OrderSummary />
 
               <Box sx={{ mt: 3 }}>
                 <Button color="secondary" className="circular-btn" fullWidth>
@@ -41,7 +40,6 @@ const CartPage = () => {
             </CardContent>
           </Card>
         </Grid>
-
       </Grid>
     </ShopLayout>
   );
