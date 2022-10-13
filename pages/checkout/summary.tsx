@@ -11,19 +11,18 @@ import React from "react";
 import { ShopLayout } from "../../components/layout";
 import { CartList, OrderSummary } from "../../components/cart";
 
-const CartPage = () => {
+const SummaryPage = () => {
   return (
     <ShopLayout
-      title="Carrito - 3"
-      pageDescription="Carrito de compras de la tienda"
+      title="Resumen de orden"
+      pageDescription="Resumen de la orden"
     >
       <Typography variant="h1" component="h1">
-        Carrito
+        Resumen de la orden
       </Typography>
       <Grid container>
-        
         <Grid item xs={12} sm={7}>
-          <CartList editable/>
+          <CartList />
         </Grid>
 
         <Grid item xs={12} sm={5}>
@@ -41,10 +40,9 @@ const CartPage = () => {
             </CardContent>
           </Card>
         </Grid>
-
       </Grid>
     </ShopLayout>
   );
 };
 
-export default CartPage;
+export default SummaryPage;

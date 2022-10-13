@@ -12,7 +12,9 @@ import React from "react";
 import { initialData } from "../../database/products";
 import { ItemCounter } from "../ui";
 
-interface Props {}
+interface Props {
+  editable?: boolean;
+}
 
 const productsInCart = [
   initialData.products[0],
@@ -20,7 +22,7 @@ const productsInCart = [
   initialData.products[2],
 ];
 
-export const CartList = (props: Props) => {
+export const CartList = ({ editable = false }: Props) => {
   return (
     <>
       {productsInCart.map((product) => (
@@ -45,7 +47,12 @@ export const CartList = (props: Props) => {
               <Typography>
                 Talla: <strong>M</strong>
               </Typography>
-              <ItemCounter />
+
+              {editable ? (
+                <ItemCounter />
+              ) : (
+                <Typography variant="h5">3 items</Typography>
+              )}
             </Box>
           </Grid>
 

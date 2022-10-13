@@ -23,46 +23,43 @@ const productsInCart = [
 export const OrderSummary = (props: Props) => {
   return (
     <>
-      {productsInCart.map((product) => (
-        <Grid container spacing={2} key={product.slug} sx={{ mb: 1 }}>
-          <Grid item xs={3}>
-            <NextLink href="/product/slug" passHref>
-              <Link>
-                <CardActionArea>
-                  <CardMedia
-                    image={`products/${product.images[0]}`}
-                    component="img"
-                    sx={{ borderRadius: 5 }}
-                  />
-                </CardActionArea>
-              </Link>
-            </NextLink>
-          </Grid>
-
-          <Grid item xs={7}>
-            <Box display="flex" flexDirection="column">
-              <Typography variant="body1">{product.title}</Typography>
-              <Typography>
-                Talla: <strong>M</strong>
-              </Typography>
-              <ItemCounter />
-            </Box>
-          </Grid>
-
-          <Grid
-            item
-            xs={2}
-            display="flex"
-            alignItems="center"
-            flexDirection="column"
-          >
-            <Typography variant="subtitle1">{`$${product.price}`}</Typography>
-            <Button variant="text" color="secondary">
-              Remover
-            </Button>
-          </Grid>
+      <Grid container>
+        <Grid item xs={6}>
+          <Typography variant="body1">N° Productos</Typography>
         </Grid>
-      ))}
+        <Grid item xs={6} display="flex" justifyContent="end">
+          <Typography variant="body1">
+            <strong>3 items</strong>
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Typography variant="body1">Subtotal</Typography>
+        </Grid>
+        <Grid item xs={6} display="flex" justifyContent="end">
+          <Typography>
+            <strong>{`$${155.36}`}</strong>
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Typography variant="body1">Impuestos (15%)</Typography>
+        </Grid>
+        <Grid item xs={6} display="flex" justifyContent="end">
+          <Typography>
+            <strong>{`$${35.34}`}</strong>
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Typography variant="body1">Total</Typography>
+        </Grid>
+        <Grid item xs={6} display="flex" justifyContent="end">
+          <Typography>
+            <strong>{`$${186.34}`}</strong>
+          </Typography>
+        </Grid>
+      </Grid>
     </>
   );
 };
