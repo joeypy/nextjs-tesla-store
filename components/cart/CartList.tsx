@@ -22,6 +22,7 @@ const productsInCart = [
   initialData.products[2],
 ];
 
+
 export const CartList = ({ editable = false }: Props) => {
   return (
     <>
