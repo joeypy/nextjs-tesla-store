@@ -1,5 +1,5 @@
-import { FC, useMemo, useState } from "react";
-import NextLink from "next/link";
+import { FC, useMemo, useState } from 'react';
+import NextLink from 'next/link';
 import {
   Box,
   Card,
@@ -8,9 +8,9 @@ import {
   Grid,
   Link,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
 
-import { IProduct } from "../../interfaces";
+import { IProduct } from '../../interfaces';
 
 type Props = {
   product: IProduct;
@@ -18,11 +18,12 @@ type Props = {
 
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [imageLoader, setImageLoader] = useState(false);
 
   const productImage = useMemo(() => {
     return isHovered
-      ? `products/${product.images[1]}`
-      : `products/${product.images[0]}`;
+      ? `/products/${product.images[1]}`
+      : `/products/${product.images[0]}`;
   }, [isHovered, product.images]);
 
   return (
@@ -43,13 +44,18 @@ export const ProductCard: FC<Props> = ({ product }) => {
                 className="fadeIn"
                 image={productImage}
                 alt={product.title}
+                onLoad={() => setImageLoader(true)}
               ></CardMedia>
             </CardActionArea>
           </Link>
         </NextLink>
       </Card>
 
-      <Box sx={{ mt: 1 }} className="fadeIn">
+      <Box
+        sx={{ mt: 1 }}
+        style={{ display: imageLoader ? 'block' : 'none' }}
+        className="fadeIn"
+      >
         <Typography fontWeight={700}>{product.title}</Typography>
         <Typography fontWeight={500}>{`$${product.price}`}</Typography>
       </Box>
