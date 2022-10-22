@@ -1,0 +1,21 @@
+import { Box, CircularProgress, Typography } from '@mui/material';
+import React from 'react';
+
+interface Props {}
+
+export const FullScreenLoading = (props: Props) => {
+  return (
+    <Box
+      display="flex"
+      justifyContent="center"
+      flexDirection="column"
+      alignItems="center"
+      height="calc(100vh - 200px)"
+    >
+      <Typography sx={{ mb: 3 }} variant="h2" fontWeight={500} fontSize={24}>
+        Cargando...
+      </Typography>
+      <CircularProgress thickness={4} />
+    </Box>
+  );
+};
